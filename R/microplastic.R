@@ -156,7 +156,7 @@ get_curvature_image <- function(img, h = 10){
     mutate(x_index = str_remove(x_index, pattern = "V")) %>%
     mutate(x_index = as.numeric(x_index)) %>%
     filter(abs(curvature) > 0) %>%
-    mutate(curvature = ifelse(curvature > 0, "Positive", "Negative") %>% as.factor)
+    mutate(curvature = ifelse(curvature >= 0, "Positive", "Negative") %>% as.factor)
   image_out <- ggplot(out) + aes(x = x_index, y = y_index, fill = curvature) + geom_tile() +
     theme_bw()
   image_out
