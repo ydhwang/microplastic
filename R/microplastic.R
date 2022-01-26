@@ -205,5 +205,5 @@ perm_test <- function(sample_combined, K = 200){
     summarise(M = mean(abs(diff(curvature)))) %>%
     group_by(key) %>%
     summarise(M = mean(M))
-  out$M
+  out
 }
